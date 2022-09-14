@@ -4,8 +4,11 @@ const LeaderBoardItem = (props) => {
     const {dish, indexValue} = props
     const { id, image, dishName} = dish
 
+    // getting loggin state, ranks and user from store
     const {isLogged, ranks, user} = useSelector((store) => store.dishes)
     let classNameVlaue = 'leader-board-item'
+
+    // getting selection state 
     if (isLogged !== undefined && isLogged !== false){
         const userRanks = ranks[user]
         const selectedItemsIds = [userRanks['first'], userRanks['secound'], userRanks['thered']]

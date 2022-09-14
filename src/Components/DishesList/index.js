@@ -6,52 +6,60 @@ import DishItem from "../DishItem"
 import { getDishes } from "../../Features/Dishes/dishesSlicer"
 import './index.scss'
 
-const ResponseStatusConstent = {
+// fetch request statsu constant 
+const ResponseStatusConstant = {
     loading: "LOADING",
     success: "SUCCESS",
     failure: "FAILURE"
 }
 
 const Dishes = () => {
+    // waking function : for using this hooks in function
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {responseStatus, dishItems, isLogged} = useSelector((store) => store.dishes)
 
+    //if the non-authenticated user try to access this page it redirects to login page
     useEffect(() => {
         if(!isLogged){
             navigate('/login')
         }
     }, [])
 
+    // requesting for fetch data
     useEffect(() =>{
         dispatch(getDishes())
     }, [])
 
+    // failure view
     const FailureView = () => (
-        <div>
+        <div className="failure-view">
             <h1>Some Thing Was Wrong</h1>
         </div>
     )
 
+    // success view
     const successView = () => (
         <ul className="dishes-list">
             {dishItems.map(eachDish => <DishItem dish={eachDish} key={eachDish.id} />)}
         </ul>
     )
 
+    // loading view
     const loadingView = () => (
-        <div>
+        <div className="loading-view">
             <h1>Loading...</h1>
         </div>
     )
 
+    // conditional rendering
     const renderDishes = () => {
         switch (responseStatus) {
-            case ResponseStatusConstent.loading:
+            case ResponseStatusConstant.loading:
                 return loadingView()
-            case ResponseStatusConstent.success:
+            case ResponseStatusConstant.success:
                 return successView()
-            case ResponseStatusConstent.failure:
+            case ResponseStatusConstant.failure:
                 return FailureView()
             default:
                 return null

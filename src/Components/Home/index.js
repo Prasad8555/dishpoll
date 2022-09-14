@@ -7,8 +7,10 @@ import './index.scss'
 
 const Home = () => {
     const navigate = useNavigate()
+    // getting login status from redux
     const {isLogged} = useSelector((store) => store.dishes)
 
+    //if the non-authenticated user try to access this page it redirects to login page
     useEffect(() =>{
         if (!isLogged){
             navigate("/login")

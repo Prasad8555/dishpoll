@@ -6,10 +6,15 @@ import LeaderBoardItem from "../LeaderBoardItem"
 import './index.scss'
 
 const LeaderBoard = () => {
-    const {dishItems, isLogged} = useSelector((state) => state.dishes)
-    const updatedDishItems = isLogged ? [...dishItems].sort((a, b) => b.rankPoints - a.rankPoints) : ''
+    //waking the usenavigate function for using inside of the function
     const navigate = useNavigate()
 
+    // sorting dishitems list based on its rank
+    const {dishItems, isLogged} = useSelector((state) => state.dishes)
+    const updatedDishItems = isLogged ? [...dishItems].sort((a, b) => b.rankPoints - a.rankPoints) : ''
+    
+
+    //if the non-authenticated user try to access this page it redirects to login page
     useEffect(() => {
         if (!isLogged){
             navigate('/login')

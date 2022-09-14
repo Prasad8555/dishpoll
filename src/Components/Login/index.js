@@ -18,7 +18,7 @@ const Login = () => {
     // getting loggin status and users from store
     const { isLogged } = useSelector((store) => store.dishes)
 
-    // woalking functions
+    // waking functions
     const navigate = useNavigate()
     const dispatch = useDispatch()
 

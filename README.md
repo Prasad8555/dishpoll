@@ -1,10 +1,14 @@
-# Getting Started with Create React App
+# Dishpoll
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+1 ) In the project directory, you can run:
+
+### `npm install`
+
+2 ) run:
 
 ### `npm start`
 
@@ -14,57 +18,37 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+# Learn More
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Login Credentials
 
-### `npm run build`
+1 ) user: prasad password: prasad123
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2 ) user: ram password: ram123
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3 ) user: anand password: anand123
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4 ) user: mahesh password: mahesh123
 
-### `npm run eject`
+5 ) user: renu password: renu123
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# About Project
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1 ) this is a dish poll application created by using reactjs.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2 ) Multiple users can login into the app and vote for their favourite dishes and see the results of the poll.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### functionalities
 
-## Learn More
+1 ) A user can login into the app using a username and password.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2 ) Once logged in the main app you have 2 tabs ( 1 ) Dishes ( 2 ) Leaderboard.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3 ) clicking dishes tab it redirects to dishes page. Each user can make a selection of 3 dishes from the poll that has been created.
 
-### Code Splitting
+4 ) Each selection is given points based on the rank (Rank 1 gets 30 points, Rank 2 gets 20, Rank 3 gets 10).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+5 ) user are able to edit his choices anytime even after submission i.e.
 
-### Analyzing the Bundle Size
+6 )if Dish 1 was Rank 1, the user can change it to no Rank or Rank 2, if there is another dish with the same rank the other dish will lose its rank
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

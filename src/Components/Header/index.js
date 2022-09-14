@@ -8,10 +8,12 @@ import './index.scss'
 
 const Header = () => {
     const [showMenu, onClickShowMenu] = useState(false)
+    // getting login status and current user name 
     const {isLogged, user} = useSelector((state) => state.dishes)
     const profile = isLogged ? user[0].toUpperCase() : ''
     const dispatch = useDispatch()
 
+    // it changes the login status to false and user name 
     const onClickLogout = () => {
         dispatch(changeLogginState({}))
     }
@@ -20,7 +22,8 @@ const Header = () => {
         <>
             <nav>
                 <Link to="/"><img src={Logo} alt="logo" className="logo" /></Link>
-                <ul className="controlls">
+                {/* desktop view controls */}
+                <ul className="controls">
                     <Link to="/" className="link" ><li>Home</li></Link>
                     <Link to="/dishes" className="link" ><li>Dishes</li></Link>
                     <Link to="/leaderboard" className="link" ><li>Leader board</li></Link>
@@ -29,8 +32,9 @@ const Header = () => {
                 </ul>
                 <button type="button" className='menu-button' onClick={() => onClickShowMenu(!showMenu)}><GiHamburgerMenu className="menu-icon" /></button>
             </nav>
+            {/* mobile view controls */}
             {showMenu && (<div className='menu-container'>
-                            <ul className="mobile-controlls">
+                            <ul className="mobile-controls">
                                 <Link to="/" className="link" ><li>Home</li></Link>
                                 <Link to="/dishes" className="link" ><li>Dishes</li></Link>
                                 <Link to="/leaderboard" className="link" ><li>Leader board</li></Link>

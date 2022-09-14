@@ -1,15 +1,20 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+// user credentials
 const users = [{user: "prasad", password: "prasad123"}, {user: "mahesh", password: "mahesh123"}, {user: "ram", password: "ram123"}, {user: "anand", password: "anand123"}, {user: "renu", password:"renu123"}]
 
+// ranks
 const ranks = {'prasad': {'first': null, 'secound': null, 'thered': null}, 'mahesh': {'first': null, 'secound': null, 'thered': null}, 'ram': {'first': null, 'secound': null, 'thered': null}, 'anand': {'first': null, 'secound': null, 'thered': null}, 'renu': {'first': null, 'secound': null, 'thered': null}}
 
+// dishes fetch API
 const url = "https://raw.githubusercontent.com/syook/react-dishpoll/main/db.json"
 
+// dishes fetch function
 export const getDishes = createAsyncThunk("getDishItems", () => {
     return fetch(url).then((response) => response.json()).catch((err) => console.log(err))
 })
 
+// redux default state
 const initialState =  {
     isLogged: false,
     dishItems: [],
@@ -20,7 +25,7 @@ const initialState =  {
 }
 
 
-
+// it checks for the previous state in localstorage if there is no data it returns initial state else it returns data stored in localstorage
 const loadState = () => {
     let state
     try{
@@ -38,17 +43,20 @@ const loadState = () => {
         return state
 }
 
-
+// calling loadState function 
 const state = loadState()
 
+// creating Slice
 const dishesSlice = createSlice({
     name: "dishes",
     initialState: state,
     reducers: {
+        // it changes the login state and user
         changeLogginState: (state, {payload}) => {
             state.isLogged = !state.isLogged
             state.user = payload.username
         },
+        // it updates the user votes
         giveOrChangeVote: (state, action) => {
             const {user, id, vote} = action.payload
             const dish = state.dishItems.find(each => each.id === id)
@@ -58,14 +66,14 @@ const dishesSlice = createSlice({
                         if (state.ranks[user]['secound'] === id){
                             state.ranks[user]['first'] = id
                             state.ranks[user]['secound'] = null
-                            dish.rankPoints = dish.rankPoints + 1
+                            dish.rankPoints = dish.rankPoints + 10
                         }else if(state.ranks[user]['thered'] === id){
                             state.ranks[user]['first'] = id
                             state.ranks[user]['thered'] = null
-                            dish.rankPoints = dish.rankPoints + 2
+                            dish.rankPoints = dish.rankPoints + 20
                         }else{
                             state.ranks[user]['first'] = id
-                            dish.rankPoints = dish.rankPoints + 3
+                            dish.rankPoints = dish.rankPoints + 30
                         }
                     }
                     break;
@@ -74,14 +82,14 @@ const dishesSlice = createSlice({
                         if (state.ranks[user]['first'] === id){
                             state.ranks[user]['secound'] = id
                             state.ranks[user]['first'] = null
-                            dish.rankPoints = dish.rankPoints -1
+                            dish.rankPoints = dish.rankPoints -10
                         }else if (state.ranks[user]['thered'] === id){
                             state.ranks[user]['secound'] = id
                                 state.ranks[user]['thered'] = null
-                                dish.rankPoints = dish.rankPoints + 1
+                                dish.rankPoints = dish.rankPoints + 10
                         }else{
                             state.ranks[user]['secound'] = id
-                            dish.rankPoints = dish.rankPoints + 2
+                            dish.rankPoints = dish.rankPoints + 20
                         }
                     }
                     break
@@ -90,14 +98,14 @@ const dishesSlice = createSlice({
                         if (state.ranks[user]['first'] === id){
                             state.ranks[user]['thered'] = id
                             state.ranks[user]['first'] = null
-                            dish.rankPoints = dish.rankPoints + 2
+                            dish.rankPoints = dish.rankPoints + 20
                         }else if(state.ranks[user]['secound'] === id){
                             state.ranks[user]['thered'] = id
                             state.ranks[user]['secound'] = null
-                            dish.rankPoints = dish.rankPoints + 1
+                            dish.rankPoints = dish.rankPoints + 10
                         }else{
                             state.ranks[user]['thered'] = id
-                            dish.rankPoints = dish.rankPoints + 1
+                            dish.rankPoints = dish.rankPoints + 10
                         }
                     }
                     break
@@ -106,6 +114,7 @@ const dishesSlice = createSlice({
             }
         }
     },
+    // it updates dishes list and responseStatus based on fetch request status 
     extraReducers: {
         [getDishes.pending]:(state) =>{
             state.responseStatus = "LOADING"
