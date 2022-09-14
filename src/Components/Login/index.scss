@@ -1,0 +1,96 @@
+.login-background-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(255, 255, 255);
+    .login-page-side-img{
+        width: 50%;
+        background-size: cover;
+        height: 100%;
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        padding: 20px;
+        border-radius: 12px;
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(223, 216, 200);
+            width: 360px;
+            height: 400px;
+            form{
+                display: flex;
+                flex-direction: column;
+                .form-top-logo{
+                    display: none;
+                }
+                label{
+                    font-size: 14px;
+                    margin-left: 8px;
+                    color: rgb(61, 61, 61);
+                    margin-top: 12px;
+                    margin-bottom: 8px;
+                }
+                input{
+                    height: 28px;
+                    width: 300px;
+                    margin-bottom: 12px;
+                    border-radius: 8px;
+                    border: 0px solid;
+                    padding: 8px;
+                    color: rgb(56, 56, 56);
+                }:focus-visible{
+                    outline: 0px;
+                    outline-width: 0px;
+                }
+                button{
+                    margin-top: 20px;
+                    width: 300px;
+                    height: 38px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border: 0.5px solid;
+                    border-radius: 8px;
+                    border: 0px solid ;
+                }
+                p{
+                    color: rgb(214, 0, 0);
+                    font-size: 12px;
+                    font-weight: 600;
+                    margin-top: 12px;
+                    text-align: center;
+                }
+            }
+        }
+        
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .login-page-side-img{
+        display: none;
+    }
+    .form-top-logo{
+        display: block !important;
+        width: 90px;
+        background-size: cover;
+        align-self: center;
+    }
+    .form-container{
+        width: 300px !important;
+        padding: 20px !important;
+    }
+    label{
+        margin-left: 20px !important;
+    }
+    input{
+        align-self: center !important;
+    }
+}

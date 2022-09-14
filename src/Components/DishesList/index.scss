@@ -1,0 +1,28 @@
+.dishes-background-container{
+    background-image: url('../../images/dishes-bg.jpg');
+    height: 100vh;
+    overflow: hidden;
+    background-size: cover;
+    .dishes-list{
+      position: relative;
+      top: 65px;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      height: calc(100vh - 65px);
+      overflow-y: scroll;
+      margin-bottom: 100px;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.dishes-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.dishes-list {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

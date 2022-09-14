@@ -1,0 +1,45 @@
+.dish-item{
+    width: 27vw;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid rgba(79, 79, 79, 0.824);
+    padding: 0.5rem;
+    border-radius: 18px;
+    background-color: rgba(209, 209, 209, 0.886);
+    img{
+        align-self: flex-start;
+        border-radius: 14px;
+        width: 100%;
+    }
+    h1{
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 18px;
+        margin-top: 0.2rem;
+    }
+    p{
+        margin-top: 0.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 12px;
+    }
+    .vote-section{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .dish-item{
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .dish-item{
+        width: 80vw;
+    }
+}
