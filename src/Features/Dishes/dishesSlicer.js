@@ -62,50 +62,121 @@ const dishesSlice = createSlice({
             const dish = state.dishItems.find(each => each.id === id)
             switch (vote) {
                 case 1:
+                    const preveusSelectedId =  state.ranks[user]['first']
+                    const preveusDish = state.dishItems.find(each => each.id === preveusSelectedId)
                     if(state.ranks[user]['first'] !== id){
                         if (state.ranks[user]['secound'] === id){
-                            state.ranks[user]['first'] = id
-                            state.ranks[user]['secound'] = null
-                            dish.rankPoints = dish.rankPoints + 10
+                            if (preveusSelectedId !== null){
+                                preveusDish.rankPoints = preveusDish.rankPoints - 30
+                                state.ranks[user]['first'] = id
+                                state.ranks[user]['secound'] = null
+                                dish.rankPoints = dish.rankPoints + 10
+                            }else{
+                                state.ranks[user]['first'] = id
+                                state.ranks[user]['secound'] = null
+                                dish.rankPoints = dish.rankPoints + 10
+                            }
+                            
                         }else if(state.ranks[user]['thered'] === id){
-                            state.ranks[user]['first'] = id
-                            state.ranks[user]['thered'] = null
-                            dish.rankPoints = dish.rankPoints + 20
+                            if (preveusSelectedId !== null){
+                                preveusDish.rankPoints = preveusDish.rankPoints - 30
+                                state.ranks[user]['first'] = id
+                                state.ranks[user]['thered'] = null
+                                dish.rankPoints = dish.rankPoints + 20
+                            }else{
+                                state.ranks[user]['first'] = id
+                                state.ranks[user]['thered'] = null
+                                dish.rankPoints = dish.rankPoints + 20
+                            }
+                            
                         }else{
-                            state.ranks[user]['first'] = id
-                            dish.rankPoints = dish.rankPoints + 30
+                            if (preveusSelectedId !== null){
+                                preveusDish.rankPoints = preveusDish.rankPoints - 30
+                                state.ranks[user]['first'] = id
+                                dish.rankPoints = dish.rankPoints + 30
+                            }else{
+                                state.ranks[user]['first'] = id
+                                dish.rankPoints = dish.rankPoints + 30
+                            }
+                            
                         }
                     }
                     break;
                 case 2 :
+                    const preveusSelectedSecoundId =  state.ranks[user]['secound']
+                    const preveusSecoundDish = state.dishItems.find(each => each.id === preveusSelectedSecoundId)
                     if(state.ranks[user]['secound'] !== id){
                         if (state.ranks[user]['first'] === id){
-                            state.ranks[user]['secound'] = id
-                            state.ranks[user]['first'] = null
-                            dish.rankPoints = dish.rankPoints -10
+                            if (preveusSelectedSecoundId !== null){
+                                preveusSecoundDish.rankPoints = preveusSecoundDish.rankPoints - 20
+                                state.ranks[user]['secound'] = id
+                                state.ranks[user]['first'] = null
+                                dish.rankPoints = dish.rankPoints -10
+                            }else{
+                                state.ranks[user]['secound'] = id
+                                state.ranks[user]['first'] = null
+                                dish.rankPoints = dish.rankPoints -10
+                            }
                         }else if (state.ranks[user]['thered'] === id){
-                            state.ranks[user]['secound'] = id
+                            if (preveusSelectedSecoundId !== null){
+                                preveusSecoundDish.rankPoints = preveusSecoundDish.rankPoints - 20
+                                state.ranks[user]['secound'] = id
                                 state.ranks[user]['thered'] = null
                                 dish.rankPoints = dish.rankPoints + 10
+                            }else{
+                                state.ranks[user]['secound'] = id
+                                state.ranks[user]['thered'] = null
+                                dish.rankPoints = dish.rankPoints + 10
+                            }
+                            
                         }else{
-                            state.ranks[user]['secound'] = id
-                            dish.rankPoints = dish.rankPoints + 20
+                            if (preveusSelectedSecoundId !== null){
+                                preveusSecoundDish.rankPoints = preveusSecoundDish.rankPoints - 20
+                                state.ranks[user]['secound'] = id
+                                dish.rankPoints = dish.rankPoints + 20
+                            }else{
+                                state.ranks[user]['secound'] = id
+                                dish.rankPoints = dish.rankPoints + 20
+                            }
                         }
                     }
                     break
                 case 3:
+                    const preveusSelectedTheredId =  state.ranks[user]['thered']
+                    const preveusTheredDish = state.dishItems.find(each => each.id === preveusSelectedTheredId)
                     if(state.ranks[user]['thered'] !== id){
                         if (state.ranks[user]['first'] === id){
-                            state.ranks[user]['thered'] = id
-                            state.ranks[user]['first'] = null
-                            dish.rankPoints = dish.rankPoints + 20
+                            if (preveusSelectedTheredId !== null){
+                                preveusTheredDish.rankPoints = preveusTheredDish.rankPoints - 10
+                                state.ranks[user]['thered'] = id
+                                state.ranks[user]['first'] = null
+                                dish.rankPoints = dish.rankPoints - 20
+                            }else{
+                                state.ranks[user]['thered'] = id
+                                state.ranks[user]['first'] = null
+                                dish.rankPoints = dish.rankPoints - 20
+                            }
                         }else if(state.ranks[user]['secound'] === id){
-                            state.ranks[user]['thered'] = id
-                            state.ranks[user]['secound'] = null
-                            dish.rankPoints = dish.rankPoints + 10
+                            if (preveusSelectedTheredId !== null){
+                                preveusTheredDish.rankPoints = preveusTheredDish.rankPoints - 10
+                                state.ranks[user]['thered'] = id
+                                state.ranks[user]['secound'] = null
+                                dish.rankPoints = dish.rankPoints - 10
+                            }else{
+                                state.ranks[user]['thered'] = id
+                                state.ranks[user]['secound'] = null
+                                dish.rankPoints = dish.rankPoints - 10
+                            }
+                            
                         }else{
-                            state.ranks[user]['thered'] = id
-                            dish.rankPoints = dish.rankPoints + 10
+                            if (preveusSelectedTheredId !== null){
+                                preveusTheredDish.rankPoints = preveusTheredDish.rankPoints - 10
+                                state.ranks[user]['thered'] = id
+                                dish.rankPoints = dish.rankPoints + 10
+                            }else{
+                                state.ranks[user]['thered'] = id
+                                dish.rankPoints = dish.rankPoints + 10
+                            }
                         }
                     }
                     break

@@ -52,3 +52,12 @@ You may also see any lint errors in the console.
 
 6 )if Dish 1 was Rank 1, the user can change it to no Rank or Rank 2, if there is another dish with the same rank the other dish will lose its rank
 
+# Technology Used
+
+1 ) React js
+
+2 ) Reduc
+
+3 ) Hooks
+
+4 ) local storage
